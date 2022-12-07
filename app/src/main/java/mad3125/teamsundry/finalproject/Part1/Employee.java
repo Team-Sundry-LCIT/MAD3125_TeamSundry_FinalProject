@@ -2,7 +2,9 @@ package mad3125.teamsundry.finalproject.Part1;
 import mad3125.teamsundry.finalproject.Part2.Vehicle;
 import mad3125.teamsundry.finalproject.Part3.EmployeeContract;
 
+import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public abstract class Employee {
 
@@ -149,5 +151,7 @@ public abstract class Employee {
     public String contractInfo() {
         return getName() + " is a " + getClass().getSimpleName().toLowerCase() +". ";
     }
+
+    public static List<Employee> employeeList = new ArrayList<>();
 
 }
