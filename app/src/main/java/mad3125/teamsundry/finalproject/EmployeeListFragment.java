@@ -1,7 +1,11 @@
 package mad3125.teamsundry.finalproject;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+import android.app.AlertDialog;
+>>>>>>> 604236d (Delete, Edit and View Employee)
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -60,7 +64,14 @@ public class EmployeeListFragment extends Fragment {
         binding.employeeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                loadEmployee(position);
+                new AlertDialog.Builder(requireContext())
+                        .setIcon(R.drawable.ic_delete)
+                        .setPositiveButton("View", (dialog, which) -> viewEmployee(position))
+                        .setPositiveButton("Edit", (dialog, which) -> editEmployee(position))
+                        .setTitle("Are you sure?")
+                        .setNegativeButton("Delete", (dialog, which) -> deleteEmployee(position))
+                        .create()
+                        .show();
             }
         });
 
@@ -90,7 +101,16 @@ public class EmployeeListFragment extends Fragment {
 
         }
 
-    private void loadEmployee(int position){
+    private void viewEmployee(int position){
+        Employee employee = (Employee) adapter.getItem(position);
+    }
+
+    private void editEmployee(int position){
+        Employee employee = (Employee) adapter.getItem(position);
+    }
+    
+    private void deleteEmployee(int position){
+        adapter.remove(position);
     }
 
     private void addEmployee(){

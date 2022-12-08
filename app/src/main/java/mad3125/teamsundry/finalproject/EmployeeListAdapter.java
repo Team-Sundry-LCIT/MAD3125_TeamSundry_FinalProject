@@ -23,9 +23,33 @@ public class EmployeeListAdapter extends ArrayAdapter {
         this.resLayout = resource;
     }
 
+    public void remove(int position) {
+        Employee.employeeList.remove(position);
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public int getViewTypeCount() {
+        return getCount();
+    }
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
     @Override
     public int getCount() {
         return Employee.employeeList.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return Employee.employeeList.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return 0;
     }
 
     @NonNull
