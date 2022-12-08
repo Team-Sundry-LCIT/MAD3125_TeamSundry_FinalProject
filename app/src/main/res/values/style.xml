@@ -5,7 +5,7 @@
     </style>
     <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
         <item name="searchIcon">@drawable/ic_search</item>
-        <item name="queryBackground">@color/white</item>
+        <item name="queryBackground">@color/textColorPrimary</item>
         <item name="searchHintIcon">@null</item>
         <item name="queryHint">@string/search</item>
         <item name="android:textColorPrimary">@color/textColorPrimary</item>

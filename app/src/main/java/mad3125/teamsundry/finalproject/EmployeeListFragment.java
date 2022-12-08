@@ -14,6 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
+import java.util.List;
+
 import mad3125.teamsundry.finalproject.Part1.Employee;
 import mad3125.teamsundry.finalproject.databinding.FragmentEmployeeListBinding;
 
@@ -66,9 +68,8 @@ public class EmployeeListFragment extends Fragment {
             // Override onQueryTextSubmit method which is call when submit query is searched
             @Override
             public boolean onQueryTextSubmit(String query) {
-                // If the list contains the search query than filter the adapter
-                // using the filter method with the query as its argument
-                if (Employee.employeeList.contains(query)) {
+                List<Employee> employeeList = EmployeeViewModel.searchEmployee(query);
+                if (employeeList.size() > 0) {
                     adapter.getFilter().filter(query);
                 } else {
                     // Search query not found in List View

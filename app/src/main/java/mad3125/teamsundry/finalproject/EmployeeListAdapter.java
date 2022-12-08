@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.util.List;
+
 import mad3125.teamsundry.finalproject.Part1.Employee;
 import mad3125.teamsundry.finalproject.databinding.EmployeeRowLayoutBinding;
 
@@ -53,9 +55,9 @@ public class EmployeeListAdapter extends ArrayAdapter {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         EmployeeRowLayoutBinding binding = EmployeeRowLayoutBinding.inflate(LayoutInflater.from(context));
 
-        binding.nameTV.setText(Employee.employeeList.get(position).getName());
-        binding.typeTV.setText(Employee.employeeList.get(position).getClass().getName());
-        binding.incomeTV.setText(Double.toString(Employee.employeeList.get(position).getAnnualIncome()));
+        binding.nameTV.setText("Name : " + Employee.employeeList.get(position).getName());
+        binding.typeTV.setText("Position : " +Employee.employeeList.get(position).getClass().getSimpleName());
+        binding.incomeTV.setText("Income : " +Double.toString(Employee.employeeList.get(position).getAnnualIncome()));
         return binding.getRoot();
     }
 }
