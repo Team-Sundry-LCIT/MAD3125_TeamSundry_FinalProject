@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ /**
+  ~  * Created by milan  on 5/4/22, 4:23 PM
+  ~  * Contributed by Subash Aryal and Tilak Acharya
+  ~  * Copyright (c) 2022 . All rights reserved.
+  ~  *
+  ~  * Last modified 5/4/22, 4:23 PM
+  ~  */
+  -->
+
+<set xmlns:android="http://schemas.android.com/apk/res/android"
+    android:fillAfter="true">
+
+    <alpha
+        android:duration="1500"
+        android:fromAlpha="1.0"
+        android:startOffset="1"
+        android:toAlpha="0"/>
+
+    <scale
+        android:duration="1500"
+        android:fromXScale="1"
+        android:fromYScale="1"
+        android:pivotX="50%"
+        android:pivotY="50%"
+        android:toXScale="2.5"
+        android:toYScale="2.5" />
+
+</set>

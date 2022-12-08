@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_home"
+    app:startDestination="@id/splashFragment">
+
+
+    <fragment
+        android:id="@+id/employeeListFragment"
+        android:name="mad3125.teamsundry.finalproject.EmployeeListFragment"
+        android:label="EmployeeListFragment" >
+        <action
+            android:id="@+id/action_employeeListFragment_to_registerFragment"
+            app:destination="@id/registerFragment" />
+        <action
+            android:id="@+id/action_employeeListFragment_to_employeeDetailFragment"
+            app:destination="@id/employeeDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/employeeDetailFragment"
+        android:name="mad3125.teamsundry.finalproject.EmployeeDetailFragment"
+        android:label="EmployeeDetailFragment" />
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="mad3125.teamsundry.finalproject.RegisterFragment"
+        android:label="RegisterFragment" />
+    <fragment
+        android:id="@+id/splashFragment"
+        tools:layout="@layout/fragment_splash"
+        android:name="mad3125.teamsundry.finalproject.SplashFragment"
+        android:label="SplashFragment" >
+        <action
+            android:id="@+id/action_splashFragment_to_employeeListFragment"
+            app:destination="@id/employeeListFragment" />
+    </fragment>
+
+</navigation>
