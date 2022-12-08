@@ -26,15 +26,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-<<<<<<< HEAD
-    buildFeatures{
-        viewBinding true
-        dataBinding true
-=======
 
     buildFeatures{
         viewBinding true
->>>>>>> 160dedd (Add Binding for employee list fragment)
+        dataBinding true
     }
 }
 

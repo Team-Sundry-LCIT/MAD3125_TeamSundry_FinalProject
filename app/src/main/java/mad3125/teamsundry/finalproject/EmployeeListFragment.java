@@ -1,11 +1,5 @@
 package mad3125.teamsundry.finalproject;
-
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
 import android.app.AlertDialog;
->>>>>>> 604236d (Delete, Edit and View Employee)
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,20 +11,13 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-<<<<<<< HEAD
->>>>>>> aecb178 (List click event)
-=======
 import androidx.appcompat.widget.SearchView;
->>>>>>> 87f6bf2 (Search method)
 import androidx.fragment.app.Fragment;
 
 import mad3125.teamsundry.finalproject.Part1.Employee;
 import mad3125.teamsundry.finalproject.databinding.FragmentEmployeeListBinding;
 
 public class EmployeeListFragment extends Fragment {
-<<<<<<< HEAD
-=======
-
     private FragmentEmployeeListBinding binding;
     EmployeeListAdapter adapter;
 
@@ -115,5 +102,4 @@ public class EmployeeListFragment extends Fragment {
 
     private void addEmployee(){
     }
->>>>>>> 160dedd (Add Binding for employee list fragment)
 }

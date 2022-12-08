@@ -7,24 +7,17 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-<<<<<<< HEAD
     <fragment
-        android:id="@+id/fragmentContainer"
+        android:id="@+id/employee_list_container"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
         app:navGraph="@navigation/nav_home"
-=======
-    <FrameLayout
-        android:id="@+id/employee_list_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
->>>>>>> a9de33c (Load the fragment in MainActivity)
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

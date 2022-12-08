@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<<<<<<< HEAD
     <style name="Theme.MAD3125_TeamSundry_FinalProject.RemoveSplashScreenTheme" parent="@style/Theme.MAD3125_TeamSundry_FinalProject">
         <item name="android:windowIsTranslucent">true</item>
-=======
+    </style>
     <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
         <item name="searchIcon">@drawable/ic_search</item>
         <item name="queryBackground">@color/white</item>
@@ -12,6 +11,5 @@
         <item name="android:textColorPrimary">@color/textColorPrimary</item>
         <item name="android:textColorHint">@color/textColorDisabled</item>
         <item name="android:tint">@color/textColorPrimary</item>
->>>>>>> efc614a (Employee List Adapter - Set data to view , Floating button click, Search style)
     </style>
 </resources>
