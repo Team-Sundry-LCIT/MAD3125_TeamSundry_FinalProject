@@ -30,6 +30,6 @@ public class EmployeeListAdapter extends ArrayAdapter {
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        
+
     }
 }

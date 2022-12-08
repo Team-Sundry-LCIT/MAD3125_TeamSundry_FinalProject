@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">MAD3125_TeamSundry_FinalProject</string>
     <string name="search">Search Employee...</string>
+    <string name="name">Name</string>
+    <string name="type">Type</string>
+    <string name="income">Income</string>
 </resources>
