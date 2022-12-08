@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment;
 
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 
+import mad3125.teamsundry.finalproject.databinding.ActivityMainBinding;
 import mad3125.teamsundry.finalproject.databinding.FragmentEmployeeListBinding;
 
 public class EmployeeListFragment extends Fragment {
@@ -11,7 +12,6 @@ public class EmployeeListFragment extends Fragment {
 =======
 
     private FragmentEmployeeListBinding binding;
-    ExtendedFloatingActionButton addEmployee;
 
     public EmployeeListFragment() {
     }
@@ -19,15 +19,23 @@ public class EmployeeListFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_employee_list,container,false);
+        binding = FragmentEmployeeListBinding.inflate(getLayoutInflater(),container,false);
+        return binding.getRoot();
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        binding.addEmployee.shrink();
+        binding.addEmployee.setOnClickListener(
+                new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
 
-        binding.addEmployee.setOnClickListener(v -> {
-        });
+                        binding.addEmployee.extend();
+                    }
+                });
+
     }
 >>>>>>> 160dedd (Add Binding for employee list fragment)
 }
