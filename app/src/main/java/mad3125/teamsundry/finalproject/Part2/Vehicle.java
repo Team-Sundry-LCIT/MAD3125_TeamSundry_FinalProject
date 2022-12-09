@@ -55,10 +55,10 @@ public abstract class Vehicle {
 
         String ownsACar = "Employee has a " + getClass().getSimpleName().toLowerCase();
 
-        return ownsACar + "\n\t- make: " + getMake() +
-                "\n\t- plate: "+ getPlate()+
-                "\n\t- color: "+ getColor() +
-                "\n\t- category: "+ getCategory();
+        return ownsACar + "\n- Model: " + getMake() +
+                "\n- Plate: "+ getPlate()+
+                "\n- Color: "+ getColor() +
+                "\n- Category: "+ getCategory();
     }
 
 }

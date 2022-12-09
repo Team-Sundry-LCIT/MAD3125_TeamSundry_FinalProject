@@ -62,8 +62,11 @@ public class Manager extends Employee {
     @Override
     public String toString() {
         return super.toString() +
-                " He/She travelled " + getTravelDays() + " days" +
-                " and has brought " + getClients() + " news clients." +
-                "\nHis/Her estimated annual income is " + getAnnualIncome();
+                "\n" +
+                "Annual income: $" + getAnnualIncome() +
+                "\n" +
+                "Travelled " + getTravelDays() + " days" +
+                "\n" +
+                "Has brought " + getClients() + " news clients.";
     }
 }

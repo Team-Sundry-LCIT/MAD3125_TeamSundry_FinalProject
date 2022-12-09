@@ -41,8 +41,11 @@ public class Tester extends Employee{
      */
     @Override
     public String toString() {
+
         return super.toString() +
-                " and corrected " + getBugs() + " bugs." +
-                "\nHis/Her estimated annual income is " + getAnnualIncome();
+                "\n" +
+                "Annual income: $" + getAnnualIncome() +
+                "\n" +
+                "Corrected " + getBugs() + " bugs.";
     }
 }
