@@ -2,4 +2,25 @@
     <string name="app_name">MAD3125_TeamSundry_FinalProject</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="registration_title">REGISTRATION FORM</string>
+    <string-array name="employeeTypes">
+        <item>Choose a type</item>
+        <item>Manager</item>
+        <item>Programmer</item>
+        <item>Tester</item>
+    </string-array>
+    <string-array name="colors">
+        <item>Choose a color</item>
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Yellow</item>
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Purple</item>
+        <item>Pink</item>
+        <item>Brown</item>
+        <item>White</item>
+        <item>Black</item>
+        <item>Beige</item>
+    </string-array>
 </resources>
