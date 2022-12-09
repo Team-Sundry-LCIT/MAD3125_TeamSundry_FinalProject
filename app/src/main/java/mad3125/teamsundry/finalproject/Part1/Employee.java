@@ -2,11 +2,12 @@ package mad3125.teamsundry.finalproject.Part1;
 import mad3125.teamsundry.finalproject.Part2.Vehicle;
 import mad3125.teamsundry.finalproject.Part3.EmployeeContract;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
-public abstract class Employee {
+public abstract class Employee implements Serializable {
 
     public static final int MAX_RATE = 100;
     public static final int MIN_RATE = 10;
@@ -127,8 +128,10 @@ public abstract class Employee {
     public String toString() {
         return "Name: " + getName() + ", a " + getClass().getSimpleName() +
                 "\nAge: "+ calculateAge() +
+                "\n" +
                 "\n"+ getVehicle() +
-                "\n" + getName() + " has an Occupation rate: " + getRate() + "%"
+                "\n" +
+                "\n" + "Occupation rate: " + getRate() + "%"
                 ;
     }
 
