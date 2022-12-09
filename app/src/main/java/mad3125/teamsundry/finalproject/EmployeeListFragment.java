@@ -14,6 +14,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import mad3125.teamsundry.finalproject.Part1.Employee;
@@ -37,7 +38,7 @@ public class EmployeeListFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        adapter = new EmployeeListAdapter(requireContext(), R.layout.employee_row_layout);
+        adapter = new EmployeeListAdapter(requireContext(), R.layout.employee_row_layout, Employee.employeeList);
         binding.employeeList.setAdapter(adapter);
 
         binding.addEmployee.shrink();
@@ -68,21 +69,25 @@ public class EmployeeListFragment extends Fragment {
             // Override onQueryTextSubmit method which is call when submit query is searched
             @Override
             public boolean onQueryTextSubmit(String query) {
-                List<Employee> employeeList = EmployeeViewModel.searchEmployee(query);
+                ArrayList<Employee> employeeList = EmployeeViewModel.searchEmployee(query);
                 if (employeeList.size() > 0) {
-                    adapter.getFilter().filter(query);
+
+                    adapter.setEmployeeList(
+                          employeeList
+                    );
+
                 } else {
-                    // Search query not found in List View
-                    Toast.makeText(requireContext(), "Not found", Toast.LENGTH_LONG).show();
+                    Toast.makeText(requireContext(), "No found", Toast.LENGTH_LONG).show();
                 }
                 return false;
             }
 
-            // This method is overridden to filter the adapter according
-            // to a search query when the user is typing search
             @Override
             public boolean onQueryTextChange(String newText) {
-                adapter.getFilter().filter(newText);
+                ArrayList<Employee> employeeList = EmployeeViewModel.searchEmployee(newText);
+                adapter.setEmployeeList(
+                        employeeList
+                );
                 return false;
             }
         });
@@ -98,7 +103,8 @@ public class EmployeeListFragment extends Fragment {
     }
     
     private void deleteEmployee(int position){
-        adapter.remove(position);
+        Employee employee = (Employee) adapter.getItem(position);
+       adapter.remove(employee);
     }
 
     private void addEmployee(){

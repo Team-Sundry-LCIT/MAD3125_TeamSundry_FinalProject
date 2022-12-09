@@ -10,6 +10,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.List;
 
 import mad3125.teamsundry.finalproject.Part1.Employee;
@@ -18,15 +20,23 @@ import mad3125.teamsundry.finalproject.databinding.EmployeeRowLayoutBinding;
 public class EmployeeListAdapter extends ArrayAdapter {
     private Context context;
     int resLayout;
+    private ArrayList<Employee> employeeList;
 
-    public EmployeeListAdapter(@NonNull Context context, int resource) {
+    public EmployeeListAdapter(@NonNull Context context, int resource, ArrayList<Employee> list) {
         super(context, resource);
         this.context = context;
         this.resLayout = resource;
+        this.employeeList = list;
     }
 
-    public void remove(int position) {
-        Employee.employeeList.remove(position);
+    public void setEmployeeList(ArrayList<Employee> employeeList) {
+        this.employeeList = employeeList;
+        notifyDataSetChanged();
+    }
+
+    public void remove(Employee employee) {
+        Employee.employeeList.remove(employee);
+        employeeList.remove(employee);
         notifyDataSetChanged();
     }
 
@@ -37,12 +47,12 @@ public class EmployeeListAdapter extends ArrayAdapter {
 
     @Override
     public int getCount() {
-        return Employee.employeeList.size();
+        return this.employeeList.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return Employee.employeeList.get(position);
+        return this.employeeList.get(position);
     }
 
     @Override
@@ -55,9 +65,9 @@ public class EmployeeListAdapter extends ArrayAdapter {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         EmployeeRowLayoutBinding binding = EmployeeRowLayoutBinding.inflate(LayoutInflater.from(context));
 
-        binding.nameTV.setText("Name : " + Employee.employeeList.get(position).getName());
-        binding.typeTV.setText("Position : " +Employee.employeeList.get(position).getClass().getSimpleName());
-        binding.incomeTV.setText("Income : " +Double.toString(Employee.employeeList.get(position).getAnnualIncome()));
+        binding.nameTV.setText("Name : " + this.employeeList.get(position).getName());
+        binding.typeTV.setText("Position : " +this.employeeList.get(position).getClass().getSimpleName());
+        binding.incomeTV.setText("Income : " +Double.toString(this.employeeList.get(position).getAnnualIncome()));
         return binding.getRoot();
     }
 }

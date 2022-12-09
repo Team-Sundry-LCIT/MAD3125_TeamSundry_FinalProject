@@ -152,6 +152,6 @@ public abstract class Employee {
         return getName() + " is a " + getClass().getSimpleName().toLowerCase() +". ";
     }
 
-    public static List<Employee> employeeList = new ArrayList<>();
+    public static ArrayList<Employee> employeeList = new ArrayList<>();
 
 }
