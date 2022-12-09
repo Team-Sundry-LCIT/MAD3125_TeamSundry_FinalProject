@@ -128,8 +128,10 @@ public abstract class Employee implements Serializable {
     public String toString() {
         return "Name: " + getName() + ", a " + getClass().getSimpleName() +
                 "\nAge: "+ calculateAge() +
+                "\n" +
                 "\n"+ getVehicle() +
-                "\n" + getName() + " has an Occupation rate: " + getRate() + "%"
+                "\n" +
+                "\n" + "Occupation rate: " + getRate() + "%"
                 ;
     }
 

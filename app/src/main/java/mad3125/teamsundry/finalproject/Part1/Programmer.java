@@ -45,7 +45,9 @@ public class Programmer extends Employee{
     @Override
     public String toString() {
         return super.toString() +
-                " has completed " + getProjects() + " projects." +
-                "\nHis/Her estimated annual income is " + getAnnualIncome();
+                "\n" +
+                "Annual income: $" + getAnnualIncome() +
+                "\n" +
+                "Has completed " + getProjects() + " projects.";
     }
 }

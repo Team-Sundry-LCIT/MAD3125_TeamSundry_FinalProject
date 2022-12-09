@@ -38,8 +38,8 @@ public class Car extends Vehicle {
     @Override
     public String toString() {
         String description =
-                "\n\t- Gear Type: " + getGear() +
-                "\n\t- Type: " + getType() ;
+                "\n- Gear Type: " + getGear() +
+                "\n- Type: " + getType() ;
 
         return super.toString() + description;
     }
