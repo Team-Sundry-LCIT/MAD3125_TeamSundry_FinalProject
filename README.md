@@ -8,7 +8,7 @@ Private Project for course MAD_3125 - Android - Team Sundry Lambton College Fall
 
 Pennapar Supawatrai (Alice) 203
 
-Malsha Parami Depakarage 063
+Malsha Parani Depakarage 063
 
 Tilak Acharya 747
 
