@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         hire_test1();
-        controller = Navigation.findNavController(this,R.id.employee_list_container);
+        controller = Navigation.findNavController(this,R.id.fragmentContainer);
    }
 
     public void hire_test1() {

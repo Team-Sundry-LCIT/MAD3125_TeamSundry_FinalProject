@@ -33,7 +33,7 @@ public class SplashFragment extends Fragment {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                Navigation.findNavController(requireActivity(),R.id.employee_list_container).navigate(R.id.action_splashFragment_to_employeeListFragment);
+                Navigation.findNavController(requireActivity(),R.id.fragmentContainer).navigate(R.id.action_splashFragment_to_employeeListFragment);
             }
 
             @Override
