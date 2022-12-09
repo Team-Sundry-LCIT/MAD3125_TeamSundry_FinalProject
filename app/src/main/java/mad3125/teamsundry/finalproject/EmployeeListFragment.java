@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,7 +58,7 @@ public class EmployeeListFragment extends Fragment {
                 new AlertDialog.Builder(requireContext())
                         .setIcon(R.drawable.ic_delete)
                         .setPositiveButton("View", (dialog, which) -> viewEmployee(position))
-                        .setPositiveButton("Edit", (dialog, which) -> editEmployee(position))
+//                        .setPositiveButton("Edit", (dialog, which) -> editEmployee(position))
                         .setTitle("Are you sure?")
                         .setNegativeButton("Delete", (dialog, which) -> deleteEmployee(position))
                         .create()
@@ -96,6 +97,9 @@ public class EmployeeListFragment extends Fragment {
 
     private void viewEmployee(int position){
         Employee employee = (Employee) adapter.getItem(position);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("data", employee);
+        Navigation.findNavController(requireActivity(),R.id.fragmentContainer).navigate(R.id.action_employeeListFragment_to_employeeDetailFragment, bundle);
     }
 
     private void editEmployee(int position){
