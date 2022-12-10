@@ -52,18 +52,28 @@ public class EmployeeListFragment extends Fragment {
                     }
                 });
 
-        binding.employeeList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                new AlertDialog.Builder(requireContext())
-                        .setIcon(R.drawable.ic_delete)
-                        .setPositiveButton("View", (dialog, which) -> viewEmployee(position))
-//                        .setPositiveButton("Edit", (dialog, which) -> editEmployee(position))
-                        .setTitle("Are you sure?")
-                        .setNegativeButton("Delete", (dialog, which) -> deleteEmployee(position))
-                        .create()
-                        .show();
-            }
+        binding.employeeList.setOnItemClickListener((parent, view1, position, id) -> {
+
+            BsItemOptions.ActionProvider provider = new BsItemOptions.ActionProvider() {
+                @Override
+                public void view() {
+                    viewEmployee(position);
+                }
+
+                @Override
+                public void edit() {
+                    editEmployee(position);
+                }
+
+                @Override
+                public void delete() {
+                    deleteEmployee(position);
+                }
+            };
+            BsItemOptions options = new BsItemOptions();
+            options.provider = provider;
+            options.show(getChildFragmentManager(),"ITEM_OPTIONS");
+
         });
 
         binding.searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
