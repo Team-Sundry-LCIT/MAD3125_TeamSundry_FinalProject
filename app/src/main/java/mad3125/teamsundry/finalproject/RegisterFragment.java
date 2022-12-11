@@ -80,22 +80,76 @@ public class RegisterFragment extends Fragment {
                 switch (checkedId) {
                     case R.id.rdCar:
                         binding.layoutSidecar.setVisibility(View.GONE);
-                        binding.dtCarType.setVisibility(View.VISIBLE);
+                        binding.etCarType.setVisibility(View.VISIBLE);
                         break;
                     case R.id.rdMotorbike:
                         binding.layoutSidecar.setVisibility(View.VISIBLE);
-                        binding.dtCarType.setVisibility(View.GONE);
+                        binding.etCarType.setVisibility(View.GONE);
                         break;
                 }
             }
         });
 
 
+        binding.btnAdd.setOnClickListener( v->{
+            if(validateEmployee()){
+                Snackbar.make(binding.getRoot(),"Can save",Snackbar.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void showMessage(String msg){
         Snackbar.make(binding.getRoot(),msg,Snackbar.LENGTH_SHORT).show();
     }
 
-
+    private boolean validateEmployee(){
+        if(binding.etEmployeeId.getText().toString().equals("")){
+            showMessage("Please provide the employee ID to continue.");
+            return false;
+        } else if(binding.etFirstName.getText().toString().equals("")){
+            showMessage("Please provide the first name to continue.");
+            return false;
+        } else if(binding.etLastName.getText().toString().equals("")){
+            showMessage("Please provide the last name to continue.");
+            return false;
+        } else if(binding.etBirthYear.getText().toString().equals("")){
+            showMessage("Please provide the birth year to continue.");
+            return false;
+        } else if(binding.etMonthlySalary.getText().toString().equals("")){
+            showMessage("Please provide the monthly salary to continue.");
+            return false;
+        } else if(binding.etRate.getText().toString().equals("")){
+            showMessage("Please provide the occupation rate to continue.");
+            return false;
+        } else if(binding.spnEmployeeType.getSelectedItemPosition() == 0){
+            showMessage("Please choose the employee type to continue.");
+            return false;
+        } else if(binding.spnEmployeeType.getSelectedItemPosition() == 1 && binding.etClients.getText().toString().equals("")){
+            showMessage("Please provide the number of client to continue.");
+            return false;
+        } else if(binding.spnEmployeeType.getSelectedItemPosition() == 2 && binding.etProjects.getText().toString().equals("")){
+            showMessage("Please provide the number of project to continue.");
+            return false;
+        } else if(binding.spnEmployeeType.getSelectedItemPosition() == 3 && binding.etBugs.getText().toString().equals("")){
+            showMessage("Please provide the number of bug to continue.");
+            return false;
+        } else if(binding.radioGroup.getCheckedRadioButtonId() == -1){
+            showMessage("Please choose the vehicle to continue.");
+            return false;
+        } else if(binding.rdCar.isChecked() && binding.etCarType.getText().toString().equals("")){
+            showMessage("Please provide the car type to continue.");
+            return false;
+        } else if(binding.etVehicleModel.getText().toString().equals("")){
+            showMessage("Please choose the vehicle model to continue.");
+            return false;
+        } else if(binding.etPlateNumber.getText().toString().equals("")){
+            showMessage("Please choose the vehicle plate number to continue.");
+            return false;
+        } else if(binding.spnVehicleColor.getSelectedItemPosition() == 0){
+            showMessage("Please choose the vehicle color to continue.");
+            return false;
+        } else {
+            return true;
+        }
+    }
 }
