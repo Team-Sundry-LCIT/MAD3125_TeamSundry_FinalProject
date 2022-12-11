@@ -93,7 +93,7 @@ public class EmployeeListFragment extends Fragment {
             }
         });
 
-        }
+    }
 
     private void viewEmployee(int position){
         Employee employee = (Employee) adapter.getItem(position);
@@ -112,5 +112,7 @@ public class EmployeeListFragment extends Fragment {
     }
 
     private void addEmployee(){
+        Bundle bundle = new Bundle();
+        Navigation.findNavController(requireActivity(),R.id.fragmentContainer).navigate(R.id.registerFragment, bundle);
     }
 }

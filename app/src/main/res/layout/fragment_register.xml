@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".RegisterFragment">
+    >
 
     <TextView
         android:id="@+id/textView"
@@ -142,6 +142,7 @@
                     android:id="@+id/etProjects"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:hint="Number of Projects" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -156,6 +157,7 @@
                     android:id="@+id/etBugs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:hint="Number of Bugs" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -170,6 +172,7 @@
                     android:id="@+id/etClients"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:hint="Number of Clients" />
 
             </com.google.android.material.textfield.TextInputLayout>
@@ -215,11 +218,13 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/layoutSidecar"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:layout_alignParentStart="true"
                 android:layout_marginStart="@dimen/defaultMargin"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
@@ -263,6 +268,7 @@
                     android:id="@+id/dtCarType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:visibility="gone"
                     android:hint="Car Type" />
 
             </com.google.android.material.textfield.TextInputLayout>
