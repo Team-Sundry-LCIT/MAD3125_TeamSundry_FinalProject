@@ -93,11 +93,45 @@ public class RegisterFragment extends Fragment {
                 switch (checkedId) {
                     case R.id.rdCar:
                         binding.layoutSidecar.setVisibility(View.GONE);
-                        binding.etCarType.setVisibility(View.VISIBLE);
+                        binding.loMotorCycleCategory.setVisibility(View.GONE);
+
+                        binding.loCarType.setVisibility(View.VISIBLE);
+                        binding.loCarCategory.setVisibility(View.VISIBLE);
+                        binding.loGear.setVisibility(View.VISIBLE);
                         break;
                     case R.id.rdMotorbike:
                         binding.layoutSidecar.setVisibility(View.VISIBLE);
-                        binding.etCarType.setVisibility(View.GONE);
+                        binding.loMotorCycleCategory.setVisibility(View.VISIBLE);
+
+                        binding.loCarType.setVisibility(View.GONE);
+                        binding.loCarCategory.setVisibility(View.GONE);
+                        binding.loGear.setVisibility(View.GONE);
+                        break;
+                }
+            }
+        });
+
+        binding.radioGroup3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
+        {
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rdPermanent:
+                        binding.etHourSalary.setVisibility(View.GONE);
+                        binding.etAccumulatedHours.setVisibility(View.GONE);
+
+                        binding.etChildren.setVisibility(View.VISIBLE);
+                        binding.etBonus.setVisibility(View.VISIBLE);
+                        binding.etAccumulatedDays.setVisibility(View.VISIBLE);
+                        binding.layoutMarried.setVisibility(View.VISIBLE);
+                        break;
+                    case R.id.rdTemporary:
+                        binding.etHourSalary.setVisibility(View.VISIBLE);
+                        binding.etAccumulatedHours.setVisibility(View.VISIBLE);
+
+                        binding.etChildren.setVisibility(View.GONE);
+                        binding.etBonus.setVisibility(View.GONE);
+                        binding.etAccumulatedDays.setVisibility(View.GONE);
+                        binding.layoutMarried.setVisibility(View.GONE);
                         break;
                 }
             }
@@ -106,40 +140,76 @@ public class RegisterFragment extends Fragment {
 
         binding.btnAdd.setOnClickListener( v->{
             if(validateEmployee()){
-                String name = binding.etFirstName.getText().toString() + " " + binding.etLastName.getText().toString();
-                int birthYear = Integer.parseInt(binding.etBirthYear.getText().toString());
-                int monthlySalary = Integer.parseInt(binding.etMonthlySalary.getText().toString());
-                int rate = Integer.parseInt(binding.etRate.getText().toString());
-                int employeeType = binding.spnEmployeeType.getSelectedItemPosition();
-                int vehicleType = binding.radioGroup.getCheckedRadioButtonId();
-                String model = binding.etVehicleModel.getText().toString();
-                String plateNumber = binding.etPlateNumber.getText().toString();
-                String vehicleColor = binding.spnVehicleColor.getSelectedItem().toString();
-                String carType = binding.etCarType.getText().toString();
-                Car car = new Car(model, plateNumber, vehicleColor, "Manual", "Sport", carType);
-                Motorcycle motorcycle = new Motorcycle(model, plateNumber, vehicleColor, "Not for Race", true);
+                Car car = new Car(
+                        binding.etVehicleModel.getText().toString(),
+                        binding.etPlateNumber.getText().toString(),
+                        binding.spnVehicleColor.getSelectedItem().toString(),
+                        binding.spnCarCategory.getSelectedItem().toString(),
+                        binding.spnGear.getSelectedItem().toString(),
+                        binding.spnCarType.getSelectedItem().toString()
+                );
 
-                switch (employeeType) {
+                Motorcycle motorcycle = new Motorcycle(
+                        binding.etVehicleModel.getText().toString(),
+                        binding.etPlateNumber.getText().toString(),
+                        binding.spnVehicleColor.getSelectedItem().toString(),
+                        binding.spnMotorCycleCategory.getSelectedItem().toString(),
+                        binding.radioGroup2.getCheckedRadioButtonId() == R.id.rdYes ? true : false
+                );
+
+                switch (binding.spnEmployeeType.getSelectedItemPosition()) {
                     case 1:
-                        int clients = Integer.parseInt(binding.etClients.getText().toString());
-                        int travelDays = Integer.parseInt(binding.etTravelDays.getText().toString());
-                        Manager manager = new Manager(name, birthYear, travelDays, clients, rate, vehicleType == R.id.rdCar ? car : motorcycle);
+                        Manager manager = new Manager(
+                                binding.etFirstName.getText().toString() + " " + binding.etLastName.getText().toString(),
+                                Integer.parseInt(binding.etBirthYear.getText().toString()),
+                                Integer.parseInt(binding.etTravelDays.getText().toString()),
+                                Integer.parseInt(binding.etClients.getText().toString()),
+                                Integer.parseInt(binding.etRate.getText().toString()),
+                                binding.radioGroup.getCheckedRadioButtonId() == R.id.rdCar ? car : motorcycle
+                        );
                         Employee.employeeList.add(manager);
+
+//                        if(binding.radioGroup3.getCheckedRadioButtonId() == R.id.rdPermanent){
+//                            Permanent p1 = new Permanent(
+//                                    Integer.parseInt(binding.etChildren.getText().toString()),
+//                                    binding.radioGroup4.getCheckedRadioButtonId() == R.id.rdMarried ? true : false,
+//                                    Double.parseDouble(binding.etMonthlySalary.getText().toString()),
+//                                    Integer.parseInt(binding.etBonus.getText().toString()),
+//                                    Integer.parseInt(binding.etAccumulatedDays.getText().toString())
+//                            );
+//
+//                            manager.signContract(p1);
+//                        } else {
+//                            Temporary t1 = new Temporary(
+//                                    Integer.parseInt(binding.etHourSalary.getText().toString()),
+//                                    Integer.parseInt(binding.etAccumulatedHours.getText().toString())
+//                            );
+//                            manager.signContract(t1);
+//                        }
                         break;
                     case 2:
-                        int projects = Integer.parseInt(binding.etProjects.getText().toString());
-                        Programmer dev  = new Programmer(name, birthYear, projects, rate, vehicleType == R.id.rdCar ? car : motorcycle);
-                        Employee.employeeList.add(dev);
+                        Programmer programmer  = new Programmer(
+                                binding.etFirstName.getText().toString() + " " + binding.etLastName.getText().toString(),
+                                Integer.parseInt(binding.etBirthYear.getText().toString()),
+                                Integer.parseInt(binding.etProjects.getText().toString()),
+                                Integer.parseInt(binding.etRate.getText().toString()),
+                                binding.radioGroup.getCheckedRadioButtonId() == R.id.rdCar ? car : motorcycle
+                        );
+                        Employee.employeeList.add(programmer);
                         break;
                     case 3:
-                        int bugs = Integer.parseInt(binding.etBugs.getText().toString());
-                        Tester tester  = new Tester(name, birthYear, bugs, rate, vehicleType == R.id.rdCar ? car : motorcycle);
+                        Tester tester  = new Tester(
+                                binding.etFirstName.getText().toString() + " " + binding.etLastName.getText().toString(),
+                                Integer.parseInt(binding.etBirthYear.getText().toString()),
+                                Integer.parseInt(binding.etBugs.getText().toString()),
+                                Integer.parseInt(binding.etRate.getText().toString()),
+                                binding.radioGroup.getCheckedRadioButtonId() == R.id.rdCar ? car : motorcycle
+                        );
                         Employee.employeeList.add(tester);
                         break;
                 }
 
                 new AlertDialog.Builder(requireContext())
-                    .setIcon(R.drawable.ic_delete)
                     .setPositiveButton("View employees", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
                             Bundle bundle = new Bundle();
@@ -195,8 +265,17 @@ public class RegisterFragment extends Fragment {
         } else if(binding.radioGroup.getCheckedRadioButtonId() == -1){
             showMessage("Please choose the vehicle to continue.");
             return false;
-        } else if(binding.rdCar.isChecked() && binding.etCarType.getText().toString().equals("")){
+        } else if(binding.rdCar.isChecked() && binding.spnCarType.getSelectedItemPosition() == 0){
             showMessage("Please provide the car type to continue.");
+            return false;
+        } else if(binding.rdCar.isChecked() && binding.spnCarCategory.getSelectedItemPosition() == 0){
+            showMessage("Please provide the car category to continue.");
+            return false;
+        } else if(binding.rdCar.isChecked() && binding.spnGear.getSelectedItemPosition() == 0){
+            showMessage("Please provide the gear of car to continue.");
+            return false;
+        } else if(binding.rdMotorbike.isChecked() && binding.spnMotorCycleCategory.getSelectedItemPosition() == 0){
+            showMessage("Please provide the motorcycle category to continue.");
             return false;
         } else if(binding.etVehicleModel.getText().toString().equals("")){
             showMessage("Please choose the vehicle model to continue.");
@@ -206,6 +285,21 @@ public class RegisterFragment extends Fragment {
             return false;
         } else if(binding.spnVehicleColor.getSelectedItemPosition() == 0){
             showMessage("Please choose the vehicle color to continue.");
+            return false;
+        } else if(binding.rdPermanent.isChecked() && binding.etChildren.getText().toString().equals("")){
+            showMessage("Please provide the number of children to continue.");
+            return false;
+        } else if(binding.rdPermanent.isChecked() && binding.etBonus.getText().toString().equals("")){
+            showMessage("Please provide the bonus of children/month of bug to continue.");
+            return false;
+        } else if(binding.rdPermanent.isChecked() && binding.etAccumulatedDays.getText().toString().equals("")){
+            showMessage("Please provide the accumulated days to continue.");
+            return false;
+        } else if(binding.rdTemporary.isChecked() && binding.etHourSalary.getText().toString().equals("")){
+            showMessage("Please provide the hours salary to continue.");
+            return false;
+        } else if(binding.rdTemporary.isChecked() && binding.etAccumulatedHours.getText().toString().equals("")){
+            showMessage("Please provide the accumulated hours to continue.");
             return false;
         } else {
             return true;
@@ -223,12 +317,28 @@ public class RegisterFragment extends Fragment {
         binding.etProjects.setText("");
         binding.etClients.setText("");
         binding.etTravelDays.setText("");
-        binding.etCarType.setText("");
+        binding.spnGear.setSelection(0);
+        binding.spnGear.setVisibility(View.GONE);
+        binding.spnMotorCycleCategory.setSelection(0);
+        binding.spnMotorCycleCategory.setVisibility(View.GONE);
+        binding.spnCarCategory.setSelection(0);
+        binding.spnCarCategory.setVisibility(View.GONE);
+        binding.spnCarType.setSelection(0);
+        binding.spnCarType.setVisibility(View.GONE);
         binding.etVehicleModel.setText("");
         binding.etPlateNumber.setText("");
         binding.spnVehicleColor.setSelection(0);
         binding.spnEmployeeType.setSelection(0);
         binding.rdNo.setChecked(true);
         binding.radioGroup.clearCheck();
+        binding.etChildren.setText("");
+        binding.etBonus.setText("");
+        binding.etAccumulatedDays.setText("");
+        binding.etAccumulatedHours.setText("");
+        binding.etHourSalary.setText("");
+        binding.rdMarried.setChecked(true);
+        binding.radioGroup3.clearCheck();
+
     }
+
 }

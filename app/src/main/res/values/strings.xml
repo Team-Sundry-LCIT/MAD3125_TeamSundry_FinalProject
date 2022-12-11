@@ -25,6 +25,26 @@
         <item>Black</item>
         <item>Beige</item>
     </string-array>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="carTypes">
+        <item>Choose a car type</item>
+        <item>Sport</item>
+        <item>Sedan</item>
+        <item>Hatchback</item>
+        <item>SUV</item>
+    </string-array>
+    <string-array name="carCategories">
+        <item>Choose a car category</item>
+        <item>Family</item>
+        <item>Race</item>
+    </string-array>
+    <string-array name="motorbikeCategories">
+        <item>Choose a motorbike category</item>
+        <item>Race Motorcycle</item>
+        <item>Not for Race</item>
+    </string-array>
+    <string-array name="gears">
+        <item>Choose a gear</item>
+        <item>Manual</item>
+        <item>Automatic</item>
+    </string-array>
 </resources>
