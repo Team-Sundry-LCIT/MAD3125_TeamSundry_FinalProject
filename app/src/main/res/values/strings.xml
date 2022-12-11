@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">MAD3125_TeamSundry_FinalProject</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="search">Search Employee...</string>
+    <string name="name">Name :</string>
+    <string name="type">Position :</string>
+    <string name="income">Income :</string>
     <string name="registration_title">REGISTRATION FORM</string>
     <string-array name="employeeTypes">
         <item>Choose a type</item>
@@ -23,8 +25,6 @@
         <item>Black</item>
         <item>Beige</item>
     </string-array>
-    <string name="search">Search Employee...</string>
-    <string name="name">Name :</string>
-    <string name="type">Position :</string>
-    <string name="income">Income :</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
