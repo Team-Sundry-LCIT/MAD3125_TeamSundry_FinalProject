@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        hire_test3();
+        //hire_test3();
         controller = Navigation.findNavController(this, R.id.fragmentContainer);
     }
 
