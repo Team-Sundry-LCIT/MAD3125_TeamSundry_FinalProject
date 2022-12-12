@@ -14,6 +14,7 @@ public abstract class Employee implements Serializable {
     public static final int NO_OF_MONTHS = 12;
     public static final double TO_PERCENTAGE = 100.0;
 
+    private int employeeID;
     private String name;
     private int birthYear;
     private int age;
@@ -82,7 +83,15 @@ public abstract class Employee implements Serializable {
 
     public abstract double getAnnualIncome();
 
-    public Employee(String name, int birthYear,int rate){
+    public int getEmployeeID() {
+        return employeeID;
+    }
+
+    public void setEmployeeID(int employeeID) {
+        this.employeeID = employeeID;
+    }
+
+    public Employee(String name, int birthYear, int rate){
         this.name = name;
         this.birthYear = birthYear;
         if(rate < MIN_RATE){
@@ -102,6 +111,8 @@ public abstract class Employee implements Serializable {
     public Employee(String name, int birthYear,Vehicle vehicle){
         this(name,birthYear,MAX_RATE,vehicle);
     }
+
+
 
     /**
      * Print employee name and type

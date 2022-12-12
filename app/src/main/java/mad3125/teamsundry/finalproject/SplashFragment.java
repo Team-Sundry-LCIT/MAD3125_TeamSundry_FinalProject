@@ -41,4 +41,6 @@ public class SplashFragment extends Fragment {
         });
         binding.logo.startAnimation(animation);
     }
+
+
 }

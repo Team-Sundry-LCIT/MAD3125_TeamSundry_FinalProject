@@ -1,14 +1,12 @@
 package mad3125.teamsundry.finalproject;
-import android.app.AlertDialog;
+import android.content.Context;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
@@ -16,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import mad3125.teamsundry.finalproject.Part1.Employee;
 import mad3125.teamsundry.finalproject.databinding.FragmentEmployeeListBinding;
@@ -25,7 +22,35 @@ public class EmployeeListFragment extends Fragment {
     private FragmentEmployeeListBinding binding;
     EmployeeListAdapter adapter;
 
-    public EmployeeListFragment() {
+    private final OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+            requireActivity().finish();
+        }
+    };
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        requireActivity().getOnBackPressedDispatcher().addCallback(callback);
+        super.onAttach(context);
+    }
+
+    @Override
+    public void onResume() {
+        callback.setEnabled(true);
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroyView() {
+        callback.setEnabled(false);
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDetach() {
+        callback.setEnabled(false);
+        super.onDetach();
     }
 
     @Nullable
@@ -42,14 +67,18 @@ public class EmployeeListFragment extends Fragment {
         adapter = new EmployeeListAdapter(requireContext(), R.layout.employee_row_layout, Employee.employeeList);
         binding.employeeList.setAdapter(adapter);
 
+        if(Employee.employeeList.isEmpty()){
+            binding.groupEmpty.setVisibility(View.VISIBLE);
+        }
+        else{
+            binding.groupEmpty.setVisibility(View.INVISIBLE);
+        }
+
         binding.addEmployee.shrink();
         binding.addEmployee.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        addEmployee();
-                        binding.addEmployee.extend();
-                    }
+                view12 -> {
+                    addEmployee();
+                    binding.addEmployee.extend();
                 });
 
         binding.employeeList.setOnItemClickListener((parent, view1, position, id) -> {
@@ -114,6 +143,10 @@ public class EmployeeListFragment extends Fragment {
 
     private void editEmployee(int position){
         Employee employee = (Employee) adapter.getItem(position);
+//        employee.setEmployeeID(Employee.employeeList.indexOf(employee));
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("data", employee);
+        Navigation.findNavController(requireActivity(),R.id.fragmentContainer).navigate(R.id.action_employeeListFragment_to_registerFragment,bundle);
     }
     
     private void deleteEmployee(int position){
@@ -122,7 +155,6 @@ public class EmployeeListFragment extends Fragment {
     }
 
     private void addEmployee(){
-        Bundle bundle = new Bundle();
-        Navigation.findNavController(requireActivity(),R.id.fragmentContainer).navigate(R.id.registerFragment, bundle);
+        Navigation.findNavController(requireActivity(),R.id.fragmentContainer).navigate(R.id.action_employeeListFragment_to_registerFragment);
     }
 }
