@@ -30,7 +30,7 @@ import mad3125.teamsundry.finalproject.databinding.FragmentRegisterBinding;
 public class RegisterFragment extends Fragment {
     private FragmentRegisterBinding binding;
 
-    private Employee employee;
+    private @Nullable Employee employee;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,8 +49,13 @@ public class RegisterFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 
-        assert getArguments() != null;
-        employee = (Employee) getArguments().getSerializable("data");
+        try{
+            employee = (Employee) getArguments().getSerializable("data");
+        }
+        catch (Exception e){
+            employee = null;
+        }
+
 
 
         binding.etEmployeeId.setText(String.valueOf(
