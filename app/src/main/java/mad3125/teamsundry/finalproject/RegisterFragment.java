@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.RadioGroup;
 import mad3125.teamsundry.finalproject.Part1.Employee;
 import mad3125.teamsundry.finalproject.Part1.Manager;
 import mad3125.teamsundry.finalproject.Part1.Programmer;
@@ -38,11 +37,12 @@ public class RegisterFragment extends Fragment {
         super.onCreate(savedInstanceState);
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        binding = FragmentRegisterBinding.inflate(getLayoutInflater(),container,false);
+        binding = FragmentRegisterBinding.inflate(inflater,container,false);
         return binding.getRoot();
     }
 
@@ -93,55 +93,49 @@ public class RegisterFragment extends Fragment {
 
         });
 
-        binding.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rdCar:
-                        binding.layoutSidecar.setVisibility(View.GONE);
-                        binding.loMotorCycleCategory.setVisibility(View.GONE);
+        binding.radioGroup.setOnCheckedChangeListener((group, checkedId) -> {
+            switch (checkedId) {
+                case R.id.rdCar:
+                    binding.layoutSidecar.setVisibility(View.GONE);
+                    binding.loMotorCycleCategory.setVisibility(View.GONE);
 
-                        binding.loCarType.setVisibility(View.VISIBLE);
-                        binding.loCarCategory.setVisibility(View.VISIBLE);
-                        binding.loGear.setVisibility(View.VISIBLE);
-                        break;
-                    case R.id.rdMotorbike:
-                        binding.layoutSidecar.setVisibility(View.VISIBLE);
-                        binding.loMotorCycleCategory.setVisibility(View.VISIBLE);
+                    binding.loCarType.setVisibility(View.VISIBLE);
+                    binding.loCarCategory.setVisibility(View.VISIBLE);
+                    binding.loGear.setVisibility(View.VISIBLE);
+                    break;
+                case R.id.rdMotorbike:
+                    binding.layoutSidecar.setVisibility(View.VISIBLE);
+                    binding.loMotorCycleCategory.setVisibility(View.VISIBLE);
 
-                        binding.loCarType.setVisibility(View.GONE);
-                        binding.loCarCategory.setVisibility(View.GONE);
-                        binding.loGear.setVisibility(View.GONE);
-                        break;
-                }
+                    binding.loCarType.setVisibility(View.GONE);
+                    binding.loCarCategory.setVisibility(View.GONE);
+                    binding.loGear.setVisibility(View.GONE);
+                    break;
             }
         });
 
-        binding.radioGroup3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener()
-        {
-            public void onCheckedChanged(RadioGroup group, int checkedId) {
-                switch (checkedId) {
-                    case R.id.rdPermanent:
-                        binding.tilHourSalary.setVisibility(View.GONE);
-                        binding.tilAccumulatedHours.setVisibility(View.GONE);
+        binding.radioGroup3.setOnCheckedChangeListener((group, checkedId) -> {
+            switch (checkedId) {
+                case R.id.rdPermanent:
+                    binding.tilHourSalary.setVisibility(View.GONE);
+                    binding.tilAccumulatedHours.setVisibility(View.GONE);
 
-                        binding.tilMonthlySalary.setVisibility(View.VISIBLE);
-                        binding.tilChildren.setVisibility(View.VISIBLE);
-                        binding.tilBonus.setVisibility(View.VISIBLE);
-                        binding.tilAccumulatedDays.setVisibility(View.VISIBLE);
-                        binding.layoutMarried.setVisibility(View.VISIBLE);
-                        break;
-                    case R.id.rdTemporary:
-                        binding.tilHourSalary.setVisibility(View.VISIBLE);
-                        binding.tilAccumulatedHours.setVisibility(View.VISIBLE);
+                    binding.tilMonthlySalary.setVisibility(View.VISIBLE);
+                    binding.tilChildren.setVisibility(View.VISIBLE);
+                    binding.tilBonus.setVisibility(View.VISIBLE);
+                    binding.tilAccumulatedDays.setVisibility(View.VISIBLE);
+                    binding.layoutMarried.setVisibility(View.VISIBLE);
+                    break;
+                case R.id.rdTemporary:
+                    binding.tilHourSalary.setVisibility(View.VISIBLE);
+                    binding.tilAccumulatedHours.setVisibility(View.VISIBLE);
 
-                        binding.tilMonthlySalary.setVisibility(View.GONE);
-                        binding.tilChildren.setVisibility(View.GONE);
-                        binding.tilBonus.setVisibility(View.GONE);
-                        binding.tilAccumulatedDays.setVisibility(View.GONE);
-                        binding.layoutMarried.setVisibility(View.GONE);
-                        break;
-                }
+                    binding.tilMonthlySalary.setVisibility(View.GONE);
+                    binding.tilChildren.setVisibility(View.GONE);
+                    binding.tilBonus.setVisibility(View.GONE);
+                    binding.tilAccumulatedDays.setVisibility(View.GONE);
+                    binding.layoutMarried.setVisibility(View.GONE);
+                    break;
             }
         });
 
@@ -413,10 +407,6 @@ public class RegisterFragment extends Fragment {
             showMessage("Please provide the birth year to continue.");
             return false;
         }
-//        else if(binding.etMonthlySalary.getText().toString().equals("")){
-//            showMessage("Please provide the monthly salary to continue.");
-//            return false;
-//        }
         else if(binding.etRate.getText().toString().equals("")){
             showMessage("Please provide the occupation rate to continue.");
             return false;

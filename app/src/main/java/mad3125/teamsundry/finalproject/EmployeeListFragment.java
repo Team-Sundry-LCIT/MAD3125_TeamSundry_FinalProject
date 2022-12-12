@@ -22,7 +22,7 @@ public class EmployeeListFragment extends Fragment {
     private FragmentEmployeeListBinding binding;
     EmployeeListAdapter adapter;
 
-    private OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+    private final OnBackPressedCallback callback = new OnBackPressedCallback(true) {
         @Override
         public void handleOnBackPressed() {
             requireActivity().finish();
@@ -76,12 +76,9 @@ public class EmployeeListFragment extends Fragment {
 
         binding.addEmployee.shrink();
         binding.addEmployee.setOnClickListener(
-                new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        addEmployee();
-                        binding.addEmployee.extend();
-                    }
+                view12 -> {
+                    addEmployee();
+                    binding.addEmployee.extend();
                 });
 
         binding.employeeList.setOnItemClickListener((parent, view1, position, id) -> {
@@ -158,7 +155,6 @@ public class EmployeeListFragment extends Fragment {
     }
 
     private void addEmployee(){
-        Bundle bundle = new Bundle();
-        Navigation.findNavController(requireActivity(),R.id.fragmentContainer).navigate(R.id.registerFragment, bundle);
+        Navigation.findNavController(requireActivity(),R.id.fragmentContainer).navigate(R.id.action_employeeListFragment_to_registerFragment);
     }
 }

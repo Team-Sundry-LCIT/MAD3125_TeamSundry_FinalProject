@@ -21,14 +21,15 @@ public class EmployeeDetailFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         binding = FragmentEmployeeDetailBinding.inflate(getLayoutInflater(), container, false);
-
-
+        assert getArguments() != null;
         employee = (Employee) getArguments().getSerializable("data");
+        return binding.getRoot();
+    }
 
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         binding.textViewName.setText(employee.getName());
         binding.textViewTitle.setText(employee.getClass().getSimpleName());
         binding.textViewDetail.setText(employee.toString());
-
-        return binding.getRoot();
     }
 }
