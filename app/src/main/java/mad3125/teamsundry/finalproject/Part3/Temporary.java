@@ -1,7 +1,7 @@
 package mad3125.teamsundry.finalproject.Part3;
 
 public class Temporary implements EmployeeContract  {
-    private double hourlySalary;
+    private int hourlySalary;
     private int accumulatedHours;
 
     public Temporary(int hourlySalary, int accumulatedHours) {
@@ -9,7 +9,7 @@ public class Temporary implements EmployeeContract  {
         this.accumulatedHours = accumulatedHours;
     }
 
-    public double getHourlySalary() {
+    public int getHourlySalary() {
         return hourlySalary;
     }
 

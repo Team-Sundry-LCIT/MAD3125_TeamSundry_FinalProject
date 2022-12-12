@@ -29,7 +29,7 @@
     <style name="Theme.MAD3125_TeamSundry_FinalProject.RemoveSplashScreenTheme" parent="@style/Theme.MAD3125_TeamSundry_FinalProject">
         <item name="android:windowIsTranslucent">true</item>
     </style>
-    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView">
+    <style name="SearchViewStyle" parent="Widget.AppCompat.SearchView.ActionBar">
         <item name="searchIcon">@drawable/ic_search</item>
         <item name="queryBackground">@color/textColorPrimary</item>
         <item name="searchHintIcon">@null</item>
@@ -51,9 +51,10 @@
         <item name="iconPadding">12dp</item>
         <item name="iconSize">24dp</item>
         <item name="iconGravity">start</item>
-
-    <style name="MyLabel">
-        <item name="android:textSize">16sp</item>
-        <item name="android:textStyle">normal</item>
     </style>
+
+    <style name="MyTextInput" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxBackgroundMode">outline</item>
+    </style>
+
 </resources>

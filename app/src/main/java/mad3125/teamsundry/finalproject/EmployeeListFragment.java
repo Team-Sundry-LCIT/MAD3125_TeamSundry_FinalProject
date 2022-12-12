@@ -1,12 +1,8 @@
 package mad3125.teamsundry.finalproject;
-import android.app.AlertDialog;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -16,7 +12,6 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import mad3125.teamsundry.finalproject.Part1.Employee;
 import mad3125.teamsundry.finalproject.databinding.FragmentEmployeeListBinding;
@@ -41,6 +36,13 @@ public class EmployeeListFragment extends Fragment {
 
         adapter = new EmployeeListAdapter(requireContext(), R.layout.employee_row_layout, Employee.employeeList);
         binding.employeeList.setAdapter(adapter);
+
+        if(Employee.employeeList.isEmpty()){
+            binding.groupEmpty.setVisibility(View.VISIBLE);
+        }
+        else{
+            binding.groupEmpty.setVisibility(View.INVISIBLE);
+        }
 
         binding.addEmployee.shrink();
         binding.addEmployee.setOnClickListener(

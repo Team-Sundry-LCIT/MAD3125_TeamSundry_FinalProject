@@ -36,103 +36,108 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilID"
+                style="@style/MyTextInput"
+                android:enabled="false"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Employee ID"
+                android:layout_marginTop="@dimen/margin_normal"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
                     android:id="@+id/etEmployeeId"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Employee ID" />
+                     />
 
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilFirstName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/MyTextInput"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:hint="First Name"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etFirstName"
-                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="First Name" />
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilLastName"
+                style="@style/MyTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:hint="Last Name"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etLastName"
-                    android:background="@color/white"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Last Name" />
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+               android:id="@+id/tilBirthYear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/MyTextInput"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:hint="Birth Year"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
                     android:id="@+id/etBirthYear"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:hint="Birth Year" />
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
+
+
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilRate"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/MyTextInput"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:hint="Occupation Rate"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
-                    android:id="@+id/etMonthlySalary"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal"
-                    android:hint="Monthly Salary" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-            <com.google.android.material.textfield.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
                     android:id="@+id/etRate"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal"
-                    android:hint="Occupation Rate" />
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:paddingVertical="@dimen/margin_low">
+
                 <TextView
                     android:id="@+id/tvMeal"
                     style="@style/MyLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
                     android:layout_marginStart="@dimen/defaultMargin"
                     android:layout_marginTop="5dp"
                     android:text="Employee Type" />
@@ -144,87 +149,100 @@
                     android:layout_marginTop="40dp"
                     android:layout_margin="5dp"
                     android:entries="@array/employeeTypes"/>
+
             </LinearLayout>
 
 
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilProjects"
+                style="@style/MyTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:hint="Number of Projects"
+                android:visibility="gone"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
                     android:id="@+id/etProjects"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:visibility="gone"
-                    android:hint="Number of Projects" />
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilBugs"
+                style="@style/MyTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:visibility="gone"
+                android:hint="Number of Bugs"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
                     android:id="@+id/etBugs"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:visibility="gone"
-                    android:hint="Number of Bugs" />
+                     />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilClients"
+                style="@style/MyTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:visibility="gone"
+                android:hint="Number of Clients"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
                     android:id="@+id/etClients"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:visibility="gone"
-                    android:hint="Number of Clients" />
+                     />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilTravelDays"
+                style="@style/MyTextInput"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:hint="Number of travel days"
+                android:layout_marginTop="@dimen/margin_normal"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
                     android:id="@+id/etTravelDays"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:visibility="gone"
-                    android:hint="Number of travel days" />
+                     />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
-                android:layout_width="fill_parent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="@dimen/defaultMargin"
-                android:layout_marginTop="5dp"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/defaultMargin"
+                android:layout_marginTop="@dimen/margin_low"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Vehicle"
                     android:textSize="16sp"
@@ -232,17 +250,16 @@
 
                 <RadioGroup
                     android:id="@+id/radioGroup"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginLeft="70dp"
                     >
 
                     <RadioButton
                         android:id="@+id/rdCar"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="40dp"
+                        android:layout_marginEnd="@dimen/margin_high"
                         android:text="Car" />
 
                     <RadioButton
@@ -258,13 +275,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="@dimen/defaultMargin"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/defaultMargin"
                 android:visibility="gone"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Side Car"
                     android:textSize="16sp"
@@ -272,10 +290,9 @@
 
                 <RadioGroup
                     android:id="@+id/radioGroup2"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginLeft="63dp"
                     android:clipToPadding="false"
                     android:checkedButton="@id/rdNo"
                     >
@@ -284,7 +301,7 @@
                         android:id="@+id/rdYes"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="40dp"
+                        android:layout_marginEnd="@dimen/margin_high"
                         android:text="Yes" />
 
                     <RadioButton
@@ -306,7 +323,6 @@
                     style="@style/MyLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
                     android:layout_marginStart="@dimen/defaultMargin"
                     android:layout_marginTop="5dp"
                     android:text="Car Type" />
@@ -322,16 +338,19 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilVehicleModel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/MyTextInput"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:hint="Vehicle Model"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
                     android:id="@+id/etVehicleModel"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Vehicle Model" />
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -340,23 +359,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:paddingHorizontal="@dimen/defaultMargin"
+                android:paddingVertical="@dimen/margin_low"
                 android:orientation="horizontal">
                 <TextView
                     android:id="@+id/tvCarCategories"
                     style="@style/MyLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="@dimen/defaultMargin"
-                    android:layout_marginTop="5dp"
-                    android:text="Car Category" />
+                    android:text="Category" />
 
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/spnCarCategory"
-                    android:layout_marginTop="40dp"
-                    android:layout_margin="5dp"
                     android:entries="@array/carCategories"/>
             </LinearLayout>
 
@@ -365,23 +382,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:paddingHorizontal="@dimen/defaultMargin"
+                android:paddingVertical="@dimen/margin_low"
                 android:orientation="horizontal">
                 <TextView
                     android:id="@+id/tvMotorCycleCategories"
                     style="@style/MyLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="@dimen/defaultMargin"
-                    android:layout_marginTop="5dp"
-                    android:text="MotorCycle Category" />
+                    android:text="Category" />
 
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/spnMotorCycleCategory"
-                    android:layout_marginTop="40dp"
-                    android:layout_margin="5dp"
                     android:entries="@array/motorbikeCategories"/>
             </LinearLayout>
 
@@ -390,60 +405,61 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:visibility="gone"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:paddingHorizontal="@dimen/defaultMargin"
+                android:paddingVertical="@dimen/margin_low"
                 android:orientation="horizontal">
                 <TextView
                     android:id="@+id/txGear"
                     style="@style/MyLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="@dimen/defaultMargin"
-                    android:layout_marginTop="5dp"
                     android:text="Gear" />
 
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/spnGear"
-                    android:layout_marginTop="40dp"
-                    android:layout_margin="5dp"
                     android:entries="@array/gears"/>
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilPlateNumber"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/MyTextInput"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:hint="Plate Number"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
                     android:id="@+id/etPlateNumber"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Plate Number" />
+                    />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:paddingVertical="@dimen/margin_normal"
+                android:paddingHorizontal="@dimen/defaultMargin">
+
                 <TextView
                     android:id="@+id/tvVehicleColor"
                     style="@style/MyLabel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_marginStart="@dimen/defaultMargin"
-                    android:layout_marginTop="5dp"
                     android:text="Vehicle Color" />
 
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/spnVehicleColor"
-                    android:layout_marginTop="40dp"
-                    android:layout_margin="5dp"
+                    android:layout_marginStart="@dimen/margin_low"
                     android:entries="@array/colors"/>
             </LinearLayout>
 
@@ -452,12 +468,13 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="@dimen/defaultMargin"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="@dimen/defaultMargin"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Contract"
                     android:textSize="16sp"
@@ -465,17 +482,16 @@
 
                 <RadioGroup
                     android:id="@+id/radioGroup3"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginLeft="20dp"
                     android:clipToPadding="false"
                     >
                     <RadioButton
                         android:id="@+id/rdPermanent"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="40dp"
+                        android:layout_marginEnd="@dimen/defaultMargin"
                         android:text="Permanent" />
 
                     <RadioButton
@@ -487,49 +503,79 @@
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilMonthlySalary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/MyTextInput"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:hint="Monthly Salary"
+                android:visibility="gone"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
+                    android:id="@+id/etMonthlySalary"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilChildren"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/MyTextInput"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:hint="Number of children"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etChildren"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:visibility="gone"
-                    android:hint="Number of children" />
+                     />
 
             </com.google.android.material.textfield.TextInputLayout>
+
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilBonus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/MyTextInput"
+                android:visibility="gone"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:hint="Bonus children/month"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
                     android:id="@+id/etBonus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:visibility="gone"
-                    android:hint="Bonus children/month" />
+
+                     />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilAccumulatedDays"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/MyTextInput"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:hint="Accumulated Days"
+                android:visibility="gone"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
                     android:id="@+id/etAccumulatedDays"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:visibility="gone"
-                    android:hint="Accumulated Days" />
+                     />
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -538,13 +584,14 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
-                android:layout_alignParentStart="true"
-                android:layout_marginStart="@dimen/defaultMargin"
+                android:paddingHorizontal="@dimen/defaultMargin"
                 android:visibility="gone"
+                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
                     android:layout_height="wrap_content"
                     android:text="Married"
                     android:textSize="16sp"
@@ -552,10 +599,9 @@
 
                 <RadioGroup
                     android:id="@+id/radioGroup4"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:layout_marginLeft="63dp"
                     android:clipToPadding="false"
                     android:checkedButton="@id/rdMarried"
                     >
@@ -564,7 +610,7 @@
                         android:id="@+id/rdMarried"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="40dp"
+                        android:layout_marginEnd="@dimen/defaultMargin"
                         android:text="Yes" />
 
                     <RadioButton
@@ -576,34 +622,40 @@
             </LinearLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilHourSalary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/MyTextInput"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:hint="Hourly salary"
+                android:visibility="gone"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
                     android:id="@+id/etHourSalary"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:visibility="gone"
                     android:inputType="number"
-                    android:hint="Hour salary" />
+                     />
 
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilAccumulatedHours"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/MyTextInput"
+                android:layout_marginTop="@dimen/margin_normal"
+                android:hint="Accumulated Hours"
+                android:visibility="gone"
                 >
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:background="@color/white"
                     android:id="@+id/etAccumulatedHours"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:visibility="gone"
-                    android:hint="Accumulated Hours" />
+                     />
 
             </com.google.android.material.textfield.TextInputLayout>
 
