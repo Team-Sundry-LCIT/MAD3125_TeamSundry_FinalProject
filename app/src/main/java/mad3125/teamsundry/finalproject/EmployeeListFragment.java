@@ -116,6 +116,10 @@ public class EmployeeListFragment extends Fragment {
 
     private void editEmployee(int position){
         Employee employee = (Employee) adapter.getItem(position);
+        employee.setEmployeeID(position);
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("data", employee);
+        Navigation.findNavController(requireActivity(),R.id.fragmentContainer).navigate(R.id.action_employeeListFragment_to_registerFragment,bundle);
     }
     
     private void deleteEmployee(int position){
