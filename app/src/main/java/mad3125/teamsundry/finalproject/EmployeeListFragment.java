@@ -1,10 +1,12 @@
 package mad3125.teamsundry.finalproject;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
@@ -20,7 +22,17 @@ public class EmployeeListFragment extends Fragment {
     private FragmentEmployeeListBinding binding;
     EmployeeListAdapter adapter;
 
-    public EmployeeListFragment() {
+    private OnBackPressedCallback callback = new OnBackPressedCallback(true) {
+        @Override
+        public void handleOnBackPressed() {
+            requireActivity().finish();
+        }
+    };
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        requireActivity().getOnBackPressedDispatcher().addCallback(callback);
     }
 
     @Nullable
