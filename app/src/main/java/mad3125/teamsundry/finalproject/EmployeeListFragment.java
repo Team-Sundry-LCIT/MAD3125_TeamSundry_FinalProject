@@ -31,8 +31,26 @@ public class EmployeeListFragment extends Fragment {
 
     @Override
     public void onAttach(@NonNull Context context) {
-        super.onAttach(context);
         requireActivity().getOnBackPressedDispatcher().addCallback(callback);
+        super.onAttach(context);
+    }
+
+    @Override
+    public void onResume() {
+        callback.setEnabled(true);
+        super.onResume();
+    }
+
+    @Override
+    public void onDestroyView() {
+        callback.setEnabled(false);
+        super.onDestroyView();
+    }
+
+    @Override
+    public void onDetach() {
+        callback.setEnabled(false);
+        super.onDetach();
     }
 
     @Nullable
