@@ -57,10 +57,17 @@ public class RegisterFragment extends Fragment {
         }
 
 
+        if(Employee.employeeList.isEmpty()){
+            binding.etEmployeeId.setText(String.valueOf(
+                1
+            ));
+        }
+        else{
+            binding.etEmployeeId.setText(String.valueOf(
+                Employee.employeeList.get(Employee.employeeList.size() - 1).getEmployeeID() + 1
+            ));
+        }
 
-        binding.etEmployeeId.setText(String.valueOf(
-                Employee.employeeList.size() + 1
-        ));
 
         binding.spnEmployeeType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -216,6 +223,13 @@ public class RegisterFragment extends Fragment {
                 newEmployee.signContract(contract);
 
                 if(employee == null){
+                    if(Employee.employeeList.isEmpty()){
+                        newEmployee.setEmployeeID(1);
+                    }
+                    else{
+                        newEmployee.setEmployeeID(Employee.employeeList.get(Employee.employeeList.size() - 1).getEmployeeID() + 1);
+                    }
+
                     Employee.employeeList.add(newEmployee);
 
                     new AlertDialog.Builder(requireContext())
@@ -251,7 +265,7 @@ public class RegisterFragment extends Fragment {
 
         binding.tilID.setEnabled(false);
         binding.etEmployeeId.setText(
-                String.valueOf(model.getEmployeeID()+1)
+                String.valueOf(model.getEmployeeID())
         );
         String[] name = model.getName().split(" ");
         binding.etFirstName.setText(name[0]);
@@ -499,13 +513,17 @@ public class RegisterFragment extends Fragment {
         binding.etClients.setText("");
         binding.etTravelDays.setText("");
         binding.spnGear.setSelection(0);
-        binding.spnGear.setVisibility(View.GONE);
+//        binding.spnGear.setVisibility(View.GONE);
+        binding.loGear.setVisibility(View.GONE);
         binding.spnMotorCycleCategory.setSelection(0);
-        binding.spnMotorCycleCategory.setVisibility(View.GONE);
+//        binding.spnMotorCycleCategory.setVisibility(View.GONE);
+        binding.loMotorCycleCategory.setVisibility(View.GONE);
         binding.spnCarCategory.setSelection(0);
-        binding.spnCarCategory.setVisibility(View.GONE);
+//        binding.spnCarCategory.setVisibility(View.GONE);
+        binding.loCarCategory.setVisibility(View.GONE);
         binding.spnCarType.setSelection(0);
-        binding.spnCarType.setVisibility(View.GONE);
+//        binding.spnCarType.setVisibility(View.GONE);
+        binding.loCarType.setVisibility(View.GONE);
         binding.etVehicleModel.setText("");
         binding.etPlateNumber.setText("");
         binding.spnVehicleColor.setSelection(0);
