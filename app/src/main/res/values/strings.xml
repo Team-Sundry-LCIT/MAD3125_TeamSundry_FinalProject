@@ -4,4 +4,47 @@
     <string name="name">Name :</string>
     <string name="type">Position :</string>
     <string name="income">Income :</string>
+    <string name="registration_title">REGISTRATION FORM</string>
+    <string-array name="employeeTypes">
+        <item>Choose a type</item>
+        <item>Manager</item>
+        <item>Programmer</item>
+        <item>Tester</item>
+    </string-array>
+    <string-array name="colors">
+        <item>Choose a color</item>
+        <item>Red</item>
+        <item>Blue</item>
+        <item>Yellow</item>
+        <item>Green</item>
+        <item>Orange</item>
+        <item>Purple</item>
+        <item>Pink</item>
+        <item>Brown</item>
+        <item>White</item>
+        <item>Black</item>
+        <item>Beige</item>
+    </string-array>
+    <string-array name="carTypes">
+        <item>Choose a car type</item>
+        <item>Sport</item>
+        <item>Sedan</item>
+        <item>Hatchback</item>
+        <item>SUV</item>
+    </string-array>
+    <string-array name="carCategories">
+        <item>Choose a car category</item>
+        <item>Family</item>
+        <item>Race</item>
+    </string-array>
+    <string-array name="motorbikeCategories">
+        <item>Choose a motorbike category</item>
+        <item>Race Motorcycle</item>
+        <item>Not for Race</item>
+    </string-array>
+    <string-array name="gears">
+        <item>Choose a gear</item>
+        <item>Manual</item>
+        <item>Automatic</item>
+    </string-array>
 </resources>
