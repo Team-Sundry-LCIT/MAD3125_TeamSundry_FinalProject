@@ -5,16 +5,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
-
 import androidx.activity.OnBackPressedCallback;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-
 import java.util.ArrayList;
-
 import mad3125.teamsundry.finalproject.Part1.Employee;
 import mad3125.teamsundry.finalproject.databinding.FragmentEmployeeListBinding;
 
@@ -62,7 +59,6 @@ public class EmployeeListFragment extends Fragment {
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
 
         adapter = new EmployeeListAdapter(requireContext(), R.layout.employee_row_layout, Employee.employeeList);
         binding.employeeList.setAdapter(adapter);
@@ -74,12 +70,7 @@ public class EmployeeListFragment extends Fragment {
             binding.groupEmpty.setVisibility(View.INVISIBLE);
         }
 
-        binding.addEmployee.shrink();
-        binding.addEmployee.setOnClickListener(
-                view12 -> {
-                    addEmployee();
-                    binding.addEmployee.extend();
-                });
+        binding.addEmployee.setOnClickListener(view12 -> addEmployee());
 
         binding.employeeList.setOnItemClickListener((parent, view1, position, id) -> {
 
@@ -135,22 +126,21 @@ public class EmployeeListFragment extends Fragment {
     }
 
     private void viewEmployee(int position){
-        Employee employee = (Employee) adapter.getItem(position);
+        Employee employee = adapter.getItem(position);
         Bundle bundle = new Bundle();
         bundle.putSerializable("data", employee);
         Navigation.findNavController(requireActivity(),R.id.fragmentContainer).navigate(R.id.action_employeeListFragment_to_employeeDetailFragment, bundle);
     }
 
     private void editEmployee(int position){
-        Employee employee = (Employee) adapter.getItem(position);
-//        employee.setEmployeeID(Employee.employeeList.indexOf(employee));
+        Employee employee = adapter.getItem(position);
         Bundle bundle = new Bundle();
         bundle.putSerializable("data", employee);
         Navigation.findNavController(requireActivity(),R.id.fragmentContainer).navigate(R.id.action_employeeListFragment_to_registerFragment,bundle);
     }
     
     private void deleteEmployee(int position){
-        Employee employee = (Employee) adapter.getItem(position);
+        Employee employee = adapter.getItem(position);
        adapter.remove(employee);
     }
 

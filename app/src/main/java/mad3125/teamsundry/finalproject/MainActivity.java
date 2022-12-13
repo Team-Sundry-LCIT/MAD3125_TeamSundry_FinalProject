@@ -1,15 +1,7 @@
 package mad3125.teamsundry.finalproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.fragment.app.FragmentManager;
-
 import android.os.Bundle;
-import android.view.View;
-
-import java.util.ArrayList;
-
 import mad3125.teamsundry.finalproject.Part1.Employee;
 import mad3125.teamsundry.finalproject.Part1.Manager;
 import mad3125.teamsundry.finalproject.Part1.Programmer;
@@ -21,17 +13,13 @@ import mad3125.teamsundry.finalproject.Part3.Temporary;
 import mad3125.teamsundry.finalproject.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
-    private ActivityMainBinding binding;
-    NavController controller;
-    static ArrayList<Employee> employees = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        mad3125.teamsundry.finalproject.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         //hire_test3();
-        controller = Navigation.findNavController(this, R.id.fragmentContainer);
     }
 
     public void hire_test1() {

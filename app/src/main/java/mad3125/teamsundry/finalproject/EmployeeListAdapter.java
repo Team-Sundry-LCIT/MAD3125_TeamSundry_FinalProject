@@ -5,20 +5,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.List;
-
 import mad3125.teamsundry.finalproject.Part1.Employee;
 import mad3125.teamsundry.finalproject.databinding.EmployeeRowLayoutBinding;
 
-public class EmployeeListAdapter extends ArrayAdapter {
-    private Context context;
+public class EmployeeListAdapter extends ArrayAdapter<Employee> {
+    private final Context context;
     int resLayout;
     private ArrayList<Employee> employeeList;
 
@@ -51,7 +45,7 @@ public class EmployeeListAdapter extends ArrayAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public Employee getItem(int position) {
         return this.employeeList.get(position);
     }
 

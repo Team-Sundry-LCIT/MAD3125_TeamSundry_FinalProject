@@ -3,12 +3,10 @@ package mad3125.teamsundry.finalproject;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,9 +17,7 @@ import mad3125.teamsundry.finalproject.Part1.Programmer;
 import mad3125.teamsundry.finalproject.Part1.Tester;
 import mad3125.teamsundry.finalproject.Part2.Car;
 import mad3125.teamsundry.finalproject.Part2.Motorcycle;
-
 import com.google.android.material.snackbar.Snackbar;
-
 import mad3125.teamsundry.finalproject.Part3.EmployeeContract;
 import mad3125.teamsundry.finalproject.Part3.Permanent;
 import mad3125.teamsundry.finalproject.Part3.Temporary;
@@ -33,13 +29,7 @@ public class RegisterFragment extends Fragment {
     private @Nullable Employee employee;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         binding = FragmentRegisterBinding.inflate(inflater,container,false);
@@ -247,7 +237,6 @@ public class RegisterFragment extends Fragment {
                 else{
                     int position = Employee.employeeList.indexOf(employee);
                     newEmployee.setEmployeeID(employee.getEmployeeID());
-//                    Employee.employeeList.set(employee.getEmployeeID(),newEmployee);
                     Employee.employeeList.set(position,newEmployee);
                     Snackbar.make(binding.getRoot(),"Edited Successfully",Snackbar.LENGTH_SHORT).show();
                     Navigation.findNavController(requireActivity(),R.id.fragmentContainer).popBackStack();
@@ -516,16 +505,12 @@ public class RegisterFragment extends Fragment {
         binding.etClients.setText("");
         binding.etTravelDays.setText("");
         binding.spnGear.setSelection(0);
-//        binding.spnGear.setVisibility(View.GONE);
         binding.loGear.setVisibility(View.GONE);
         binding.spnMotorCycleCategory.setSelection(0);
-//        binding.spnMotorCycleCategory.setVisibility(View.GONE);
         binding.loMotorCycleCategory.setVisibility(View.GONE);
         binding.spnCarCategory.setSelection(0);
-//        binding.spnCarCategory.setVisibility(View.GONE);
         binding.loCarCategory.setVisibility(View.GONE);
         binding.spnCarType.setSelection(0);
-//        binding.spnCarType.setVisibility(View.GONE);
         binding.loCarType.setVisibility(View.GONE);
         binding.etVehicleModel.setText("");
         binding.etPlateNumber.setText("");
