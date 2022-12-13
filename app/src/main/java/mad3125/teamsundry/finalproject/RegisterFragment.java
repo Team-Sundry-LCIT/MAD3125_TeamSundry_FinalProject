@@ -245,7 +245,10 @@ public class RegisterFragment extends Fragment {
                             .show();
                 }
                 else{
-                    Employee.employeeList.set(employee.getEmployeeID(),newEmployee);
+                    int position = Employee.employeeList.indexOf(employee);
+                    newEmployee.setEmployeeID(employee.getEmployeeID());
+//                    Employee.employeeList.set(employee.getEmployeeID(),newEmployee);
+                    Employee.employeeList.set(position,newEmployee);
                     Snackbar.make(binding.getRoot(),"Edited Successfully",Snackbar.LENGTH_SHORT).show();
                     Navigation.findNavController(requireActivity(),R.id.fragmentContainer).popBackStack();
                 }
