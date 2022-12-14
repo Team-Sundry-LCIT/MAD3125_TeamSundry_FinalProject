@@ -1,14 +1,13 @@
 package mad3125.teamsundry.finalproject;
 
+import androidx.lifecycle.ViewModel;
 import java.util.ArrayList;
-import java.util.Locale;
-
 import mad3125.teamsundry.finalproject.Part1.Employee;
 
-public class EmployeeViewModel {
+public class EmployeeViewModel extends ViewModel {
 
     public static ArrayList<Employee> searchEmployee(String text) {
-        ArrayList<Employee> matches = new ArrayList();
+        ArrayList<Employee> matches = new ArrayList<>();
         for(Employee member : Employee.employeeList) {
             if (member.getName().toLowerCase().contains(text.toLowerCase())) {
                 matches.add(member);

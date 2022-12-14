@@ -1,14 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--
-  ~ /**
-  ~  * Created by milan  on 5/4/22, 4:23 PM
-  ~  * Contributed by Subash Aryal and Tilak Acharya
-  ~  * Copyright (c) 2022 . All rights reserved.
-  ~  *
-  ~  * Last modified 5/4/22, 4:23 PM
-  ~  */
-  -->
-
 <set xmlns:android="http://schemas.android.com/apk/res/android"
     android:fillAfter="true">
 
